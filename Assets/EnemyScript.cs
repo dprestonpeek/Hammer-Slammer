@@ -21,8 +21,6 @@ public class EnemyScript : MonoBehaviour {
         MoveEnemy();
 	}
 
-    
-
     void MoveEnemy()
     {
         Vector3 enemyPosition = transform.position;

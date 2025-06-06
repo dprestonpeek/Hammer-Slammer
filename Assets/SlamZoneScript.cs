@@ -34,7 +34,6 @@ public class SlamZoneScript : MonoBehaviour {
     float rotation;
     bool startGroundCount = false;
     int groundCount;
-    Vector3 blockVector = new Vector3(0, Time.deltaTime * 12, 0);
 
     public int score = 0;
 
@@ -65,7 +64,7 @@ public class SlamZoneScript : MonoBehaviour {
         }
     }
 
-    void BlockCheck()
+    private void BlockCheck()
     {
         rotation = transform.rotation.z;
 
@@ -84,7 +83,7 @@ public class SlamZoneScript : MonoBehaviour {
         }
     }
 
-    void IsPowerUp()
+    private void IsPowerUp()
     {
         if (powerUpConsumed >= 1)
         {
@@ -97,7 +96,7 @@ public class SlamZoneScript : MonoBehaviour {
         }
     }
 
-    void AddScore()
+    private void AddScore()
     {
         if (score % 20 == 0 && oldScore != score)
         {
@@ -114,7 +113,7 @@ public class SlamZoneScript : MonoBehaviour {
         Invincible(num);
     }
 
-    void SuperHammer(int num)
+    private void SuperHammer(int num)
     {
         if (num == 1)
         {
@@ -134,7 +133,7 @@ public class SlamZoneScript : MonoBehaviour {
         }
     }
 
-    void Invincible(int num)
+    private void Invincible(int num)
     {
         if (num == 2)
         {

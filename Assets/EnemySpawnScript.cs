@@ -12,11 +12,6 @@ public class EnemySpawnScript : MonoBehaviour {
     public bool commence = false;
     public float enemyWindow = .05f;
     float timer;
-
-    // Use this for initialization
-    void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update ()
@@ -24,13 +19,9 @@ public class EnemySpawnScript : MonoBehaviour {
         SpawnEnemy();
     }
 
-    void SpawnEnemy()
+    private void SpawnEnemy()
     {
         float totalWindow = 5;
-        //if (enemyWindow > 1)
-        //    totalWindow = (enemyWindow * 5) / 2;
-        //else
-        //    totalWindow = 5;
         timer = Mathf.Repeat(Time.time, totalWindow);
         if (commence == true)
         {
@@ -50,20 +41,17 @@ public class EnemySpawnScript : MonoBehaviour {
                     enemyWindow += .1f;
                 if (enemyWindow >= 10)
                     enemyWindow += 1;
-                //if (enemyWindow >= 100)
-                //    enemyWindow = 0;
             }
         }
     }
 
-    void SpawnEnemyLeft()
+    private void SpawnEnemyLeft()
     {
         GameObject Enemy = Instantiate(enemyPrefabLeft, EnemySpawnPointLeft.position, Quaternion.identity);
     }
 
-    void SpawnEnemyRight()
+    private void SpawnEnemyRight()
     {
         GameObject Enemy = Instantiate(enemyPrefabRight, EnemySpawnPointRight.position, Quaternion.identity);
-
     }
 }

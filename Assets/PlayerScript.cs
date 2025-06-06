@@ -45,49 +45,6 @@ public class PlayerScript : MonoBehaviour
         PlayerMove();
         PlayerJump();
         IsPowerUp();
-        //AreYouDead();
-    }
-
-    private void PlayerMove()
-    {
-        PlayerPosition = Input.GetAxis("Horizontal");
-        Debug.Log(PlayerPosition);
-
-        Vector3 newPosition = transform.position;
-
-        if (Input.GetButton("Fire1"))
-        {
-            playerSpeed = 15;
-            Rigidbody rb = GetComponent<Rigidbody>();
-            rb.mass = 2;
-        }
-        else
-        {
-            playerSpeed = 10;
-            Rigidbody rb = GetComponent<Rigidbody>();
-            rb.mass = 1;
-        }
-
-        newPosition.x += PlayerPosition * Time.deltaTime * playerSpeed;
-
-        newPosition.x = Mathf.Clamp(newPosition.x, -30, 30);
-        transform.position = newPosition;
-
-
-    }
-
-    void IsPowerUp()
-    {
-        if (invincibleMode == true)
-        {
-            timer++;
-            if (timer >= 1000)
-            {
-                invincibleMode = false;
-                timer = 0;
-                Destroy(InvincibleIndic);
-            }
-        }
     }
 
     public void OnCollisionEnter(Collision other)
@@ -129,6 +86,32 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    private void PlayerMove()
+    {
+        PlayerPosition = Input.GetAxis("Horizontal");
+        Debug.Log(PlayerPosition);
+
+        Vector3 newPosition = transform.position;
+
+        if (Input.GetButton("Fire1"))
+        {
+            playerSpeed = 15;
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.mass = 2;
+        }
+        else
+        {
+            playerSpeed = 10;
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.mass = 1;
+        }
+
+        newPosition.x += PlayerPosition * Time.deltaTime * playerSpeed;
+
+        newPosition.x = Mathf.Clamp(newPosition.x, -30, 30);
+        transform.position = newPosition;
+    }
+
     private void PlayerJump()
     {
         if (Input.GetButtonDown("Jump"))
@@ -141,12 +124,17 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    //private void AreYouDead()
-    //{
-    //    if (transform.position.y < -4)
-    //    {
-    //        //sceneManagerScript.YouDied();
-    //        dead = true;
-    //    }
-    //}
+    private void IsPowerUp()
+    {
+        if (invincibleMode == true)
+        {
+            timer++;
+            if (timer >= 1000)
+            {
+                invincibleMode = false;
+                timer = 0;
+                Destroy(InvincibleIndic);
+            }
+        }
+    }
 }

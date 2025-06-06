@@ -42,7 +42,7 @@ public class HammerScript : MonoBehaviour {
         SuperHammer();
     }
 
-    void MoveHammer()
+    private void MoveHammer()
     {
         newRotation = transform.localRotation;
         Vector3 parentNewPosition = transform.position;
@@ -78,7 +78,7 @@ public class HammerScript : MonoBehaviour {
         SlamHammer();
     }
 
-    void SlamHammer()
+    private void SlamHammer()
     {
         newRotation = transform.localRotation;
 
@@ -160,5 +160,4 @@ public class HammerScript : MonoBehaviour {
             audioSource.PlayOneShot(collect);
         }
     }
-
 }

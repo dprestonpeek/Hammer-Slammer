@@ -7,12 +7,6 @@ using UnityEngine.SceneManagement;
 public class SceneManagerScript : MonoBehaviour {
 
     public GameObject player;
-
-	// Use this for initialization
-	void Start ()
-    {
-
-    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -24,19 +18,16 @@ public class SceneManagerScript : MonoBehaviour {
     public void PlayOnClick()
     {
         SceneManager.LoadScene("Game", LoadSceneMode.Single);
-        //SceneManager.UnloadSceneAsync("MainMenu");
     }
 
     public void PlayAgain()
     {
         SceneManager.LoadScene("Game", LoadSceneMode.Single);
-        //SceneManager.UnloadSceneAsync("EndScreen");
     }
 
     public void YouDied()
     {
         SceneManager.LoadScene("EndScreen", LoadSceneMode.Single);
-        //SceneManager.UnloadSceneAsync("Game");
     }
 
     public void QuitGame()
